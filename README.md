@@ -4,7 +4,12 @@
 This package API generates news articles about the Powerball lottery jackpot. It provides information on the latest Powerball jackpot amount, the winning numbers (if applicable), and the state of the winner (if applicable).
 
 ## How to setup and run on local machine
-
+1. Clone this repository
+2. Install Python3 if not already installed
+3. Install dependancies `pip install requests, beautifulsoup4, Flask`
+4. Setup chrone job on your machine so that the following file `powerballData/scrap_data.py` would scrap Powerball.com winning data 3 times per week
+5. Run it on your local machine `python3 generateContentAPI.py `. This would FLASK app and you can start using API.
+(NOTE: This is a development server to run on your local machine. There are other options to run it in production if needed.)
 
 ## How to use this API
 To use the API, simply send a GET request to the following endpoint: http://127.0.0.1:5000/generateArticles
@@ -25,6 +30,7 @@ The response will be a JSON object with the following keys:
 4. Currently we store winning_data in JSON file, we could add a database
 5. You could run this on your local machine, but we could also run it as public API service with authentication or run on local network behind firewall
 6. We could consider scaling if needed
+7. Add more error handling in case data was not found, there was a timeout, we could add logs, etc.
 
 For more details on the scope, design and requiorements as well as implementation, you can read these articles:
 - https://mpdev.hashnode.dev/content-automation
